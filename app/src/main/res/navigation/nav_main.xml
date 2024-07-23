@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/pointCount">
+
+    <fragment
+        android:id="@+id/pointCount"
+        android:name="com.task.points.ui.fragments.pointsCount.PointCountFragment"
+        android:label="PointCountFragment"
+        tools:layout="@layout/fragment_point_count">
+        <action
+            android:id="@+id/action_pointCount_to_pointsList"
+            app:destination="@id/pointsList" />
+        </fragment>
+
+    <fragment
+        android:id="@+id/pointsList"
+        android:name="com.task.points.ui.fragments.pointsList.PointsListFragment"
+        android:label="PointsListFragment"
+        tools:layout="@layout/fragment_points_list">
+        <argument
+            android:name="count"
+            android:defaultValue="10"
+            app:nullable="false"
+            app:argType="integer" />
+        </fragment>
+
+</navigation>

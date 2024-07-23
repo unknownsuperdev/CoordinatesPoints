@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Points</string>
+    <string name="error">Error</string>
+    <string name="point_count_integer">Use only digits</string>
+    <string name="point_count_positive">Only positive numbers are allowed</string>
+    <string name="point_count_text_hint">Enter points count</string>
+    <string name="point_count_button_text">Go</string>
+    <string name="point_x_format">x: %f</string>
+    <string name="point_y_format">y: %f</string>
+    <string name="points_chart_label">points</string>
+    <string name="points_chart_screenshot_taken_toast">Chart screenshot taken</string>
+</resources>

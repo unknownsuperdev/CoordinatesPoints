@@ -1,0 +1,59 @@
+name: Android CI
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'develop'
+#  push:
+#    branches:
+#      - 'main'
+#      - 'develop'
+
+jobs:
+  #  test:
+  #    name: Run Unit Tests
+  #    runs-on: ubuntu-latest
+  #
+  #    steps:
+  #      - uses: actions/checkout@v1
+  #      - name: set up JDK 11
+  #        uses: actions/setup-java@v1
+  #        with:
+  #          java-version: 11
+  #      - name: Unit tests
+  #        run: bash ./gradlew test --stacktrace
+
+  apk:
+    name: Generate APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build debug APK
+        run: bash ./gradlew assembleDebug --stacktrace
+  #      - name: Upload artifact to Firebase App Distribution
+  #        uses: wzieba/Firebase-Distribution-Github-Action@v1
+  #        with:
+  #          appId: 1:488922612403:android:4ace1037f9bc697a4f66c6
+  #          token: 1//0ctvVQmPrncU9CgYIARAAGAwSNwF-L9IrMsrSbYRc_xyaQZr6ws4eLyKG4j47ryURPtzaurzQylptvz4YGnU6xElybzV96c-GL08
+  #          groups: testers
+  #          file: app/build/outputs/apk/dev/debug/app-dev-debug.apk
+  ktlint:
+    name: Ktlint and detect code
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build ktlint
+        run: bash ./gradlew ktlint --console=plain
+      - name: Build detekt
+        run: bash ./gradlew detekt --console=plain

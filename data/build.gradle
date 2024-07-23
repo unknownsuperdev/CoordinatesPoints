@@ -1,0 +1,48 @@
+plugins {
+    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
+}
+
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
+android {
+
+    buildTypes {
+        release {
+            //  signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://hr-challenge.dev.tapyou.com/"'
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", '"https://hr-challenge.dev.tapyou.com/"'
+        }
+    }
+    namespace 'com.task.data'
+
+    android.libraryVariants.all { variant ->
+        variant.sourceSets.java.each {
+            it.srcDirs += "build/generated/ksp/${variant.name}/kotlin"
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':entities')
+    testImplementation(test.junit)
+    androidTestImplementation(androidTest.androidxJunit)
+    androidTestImplementation(androidTest.androidxEspressoCore)
+    implementation(androidXLibraries.roomRuntime)
+    kapt (androidXLibraries.roomCompiler)
+    implementation libraries.koinAndroid
+    implementation libraries.koinAnnotations
+    ksp libraries.kspCompiler
+    implementation(libraries.retrofit)
+    implementation(libraries.loggingInterceptor)
+    implementation(libraries.gson)
+    implementation(libraries.timber)
+    implementation(androidXLibraries.paging)
+}

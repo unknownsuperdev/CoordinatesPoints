@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        style="@style/Points.UI.Widget.Text.TextAppearance.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/space_28"
+        android:layout_marginTop="@dimen/space_12"
+        android:layout_marginBottom="@dimen/space_12"
+        android:text="@string/error"
+        android:textAlignment="center"
+        android:textSize="@dimen/size_20" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        android:background="@color/dark_grey" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/massage"
+        style="@style/Points.UI.Widget.Text.TextAppearance.Main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/space_14"
+        android:layout_marginTop="@dimen/space_14"
+        android:text="Unknown account"
+        android:textAlignment="center" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/space_28"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_28"
+        android:layout_marginBottom="@dimen/space_28"
+        android:text="OK"
+        android:gravity="center" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

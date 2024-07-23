@@ -1,0 +1,8 @@
+
+dependencies {
+    implementation(libraries.gson)
+}
+
+android {
+    namespace 'com.task.entities'
+}
